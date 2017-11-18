@@ -19,6 +19,8 @@ def run():
         '--project={0}'.format(PROJECT),
         '--job_name=etl_eloqua_activity_email_send',
         '--save_main_session',
+        '--staging_location=gs://{0}/staging/'.format(PROJECT),
+        '--temp_location=gs://{0}/staging/'.format(PROJECT),
         '--runner=DataflowRunner'
     ]
 
