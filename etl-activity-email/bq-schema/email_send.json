@@ -1,0 +1,77 @@
+[
+  {
+    "name": "ActivityId",
+    "type": "INTEGER",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "ActivityType",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "ActivityDate",
+    "type": "TIMESTAMP",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "EmailAddress",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "ContactId",
+    "type": "INTEGER",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "EmailRecipientId",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "AssetType",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "AssetId",
+    "type": "INTEGER",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "AssetName",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "SubjectLine",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "EmailWebLink",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "CampaignId",
+    "type": "INTEGER",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "ExternalId",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "DeploymentId",
+    "type": "INTEGER",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "EmailSendType",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  }
+]
