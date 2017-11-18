@@ -10,14 +10,14 @@ from etl_elq_activities import export_elq_activity
 # Constants
 
 PROJECT = 'gcp-project-name'
-
+DISPOSITION = beam.io.bigquery.BigQueryDisposition.WRITE_APPEND
 
 def run():
     """ Define and run Apache Beam pipeline """
 
     argv = [
         '--project={0}'.format(PROJECT),
-        '--job_name=etl_eloqua_activity_email_send',
+        '--job_name=etleloquaactivityemailsend',
         '--save_main_session',
         '--staging_location=gs://{0}/staging/'.format(PROJECT),
         '--temp_location=gs://{0}/staging/'.format(PROJECT),
@@ -26,18 +26,18 @@ def run():
 
     pipeline = beam.Pipeline(argv=argv)
 
-    (pipeline
-     | 'GetEloquaActivityEmailSend' >> beam.Create(export_elq_activity(
-         'EmailSend', '2017-10-01 00:00:00', '2017-10-02 00:00:00'
-         ))
-     | 'WriteToBQ' >> beam.io.gcp.bigquery.BigQuerySink(
-         table='activity_email_send',
-         dataset='eloqua',
-         project=PROJECT
-     )
+    activities = pipeline | 'GetEloquaActivityEmailSend' >> beam.Create(export_elq_activity(
+        'EmailSend', '2017-10-01 00:00:00', '2017-10-02 00:00:00'
+        ))
+
+    write = activities | 'WriteToBQ' >> beam.io.gcp.bigquery.BigQuerySink(
+        table='activity_email_send',
+        dataset='eloqua',
+        project=PROJECT,
+        write_disposition=DISPOSITION
     )
 
-    pipeline.run()
+    write.run()
 
 
 if __name__ == '__main__':
