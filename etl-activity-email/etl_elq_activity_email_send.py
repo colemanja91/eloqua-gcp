@@ -22,8 +22,7 @@ def run():
         '--staging_location=gs://{0}/staging/'.format(PROJECT),
         '--temp_location=gs://{0}/staging/'.format(PROJECT),
         '--runner=DataflowRunner',
-        '--extra_package=./etl_elq_activities.py',
-        '--requirements_file=./requirements.txt'
+        '--setup_file=./setup.py'
     ]
 
     pipeline = beam.Pipeline(argv=argv)
