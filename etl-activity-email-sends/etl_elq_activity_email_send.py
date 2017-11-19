@@ -44,6 +44,8 @@ def export_elq_activity(activity, start, end):
 
     elq.filter_date('ActivityDate', start=start, end=end)
 
+    elq.add_options(areSystemTimestampsInUTC=True)
+
     elq.create_def('dataflow_{activity}_{start}_{end}'.format(
         activity=activity,
         start=start,
