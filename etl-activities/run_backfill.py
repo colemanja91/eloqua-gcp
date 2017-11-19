@@ -23,7 +23,7 @@ if __name__ == '__main__':
     KNOWN_ARGS, OTHER_ARGS = PARSER.parse_known_args()
 
     backfill_run(
-        activity=KNOWN_ARGS['activity'],
-        start=KNOWN_ARGS['start'],
-        end=KNOWN_ARGS['end']
+        activity=KNOWN_ARGS.activity,
+        start=KNOWN_ARGS.start,
+        end=KNOWN_ARGS.end
     )
