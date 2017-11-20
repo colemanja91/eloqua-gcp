@@ -42,9 +42,9 @@ def run(activity, start, end):
 
     activity_table = TABLE_MAP[activity]
 
-    job_name = '{0}{1}'.format(
-        activity.lower(),
-        start.replace('-', '').replace(' ', '').replace(':', '')
+    job_name = '{activity}{start}'.format(
+        activity=activity.lower(),
+        start=start.replace('-', '').replace(' ', '').replace(':', '')
     )
 
     argv = [
