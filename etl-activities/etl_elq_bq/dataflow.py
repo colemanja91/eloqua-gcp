@@ -3,6 +3,7 @@
     loading to BigQuery
 """
 
+from datetime import datetime
 import apache_beam as beam
 from elq_export import export_elq_activity
 
@@ -44,7 +45,7 @@ def run(activity, start, end):
 
     job_name = '{activity}{start}'.format(
         activity=activity.lower(),
-        start=start.replace('-', '').replace(' ', '').replace(':', '')
+        start=datetime.strftime(start, '%Y%m%d%H%M%S')
     )
 
     argv = [
