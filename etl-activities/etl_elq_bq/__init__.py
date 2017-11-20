@@ -33,8 +33,8 @@ def backfill_run(activity, start, end):
         return output
 
     date_set = perdelta(
-        datetime.strptime(start, '%H-%m-%dT%H:%M:%S'),
-        datetime.strptime(end, '%H-%m-%dT%H:%M:%S'),
+        datetime.strptime(start, '%Y-%m-%dT%H:%M:%S'),
+        datetime.strptime(end, '%Y-%m-%dT%H:%M:%S'),
         delta=timedelta(hours=24)
     )
 
